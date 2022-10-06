@@ -1,0 +1,18 @@
+#vermelho{
+    color: red;
+}
+h2{
+    text-decoration: underLine;
+    font-family: 'Times New Roman', Times, serif;
+}
+.itens-menu{
+    text-decoration: line-through;
+}
+
+div{
+    background-color: burlywood;
+    margin: 20px 30px 10px 100px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
