@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <h1>Aula 2</h1>
+    <span>Nome:</span>
+    <br />
+    <input type="text" id="nome" />
+    <br />
+    <br />
+    <span>Idade:</span>
+    <br />
+    <br />
+    <input type="number" min='0' id="idade"/>
+    <br />
+    <br />
+    <span>Sexo:</span>
+    <br />
+    <input type="radio" name="sexo" id="masculino" value="1"/>
+    <span>Masculino</span>
+    <br />
+    <input type="radio" name="sexo" id="feminino" value="0"/>
+    <span>Feminino</span>
+    <br />
+    <br />
+    <button onclick="addrow()">Cadastrar</button>
+    <hr />
+    <span>Ocultar tabela</span>
+    <br />
+    <br />
+    <table>
+        <tr>
+            <thead>
+            <th scope="col" class="titulo">Nome</th>
+            <th scope="col" class="titulo">Idade</th>
+            <th scope="col" class="titulo">Sexo</th>
+            </thead>
+            <tbody id="corpo"></tbody>
+        </tr>
+        
+    </table>
+</body>
+</html>
