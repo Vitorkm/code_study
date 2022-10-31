@@ -1,0 +1,64 @@
+
+.navbar {
+    width: 18%;
+    border-right: 1px solid #989797;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navlogos {
+    position: relative;
+    width: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    
+}
+
+.infobox {
+    width: 82%;
+    align-items: center;
+    border: 1px solid #989797;
+    text-align: center;
+    padding: 2rem;
+}
+
+#search {
+    border-radius: 1rem;
+    border-color: #989797;
+    width: 50%;
+}
+
+.searchbar {
+    display: inline-block;
+    vertical-align: top;
+    
+}
+
+.shadows {
+    border: 0px;
+    border-bottom: 1px  solid #989797;
+}
+.buttons {
+    width: 2rem;
+    text-align: left;
+    position: absolute;
+    height: 1.5rem;
+    background-color: white;
+    margin-left: 2rem;
+    border-width: 0px;
+    font-weight: bold;
+}
+
+.white-box {
+    height: 8rem;
+}
+
+.white-box2 {
+    height: 25rem;
+}
+
+.neoimg {
+    text-align: center;
+    padding: 0.5rem;
+}
