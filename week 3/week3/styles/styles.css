@@ -1,12 +1,13 @@
 
 .navbar {
-    width: 18%;
+    width: 100%;
     border-right: 1px solid #989797;
-    height: 100%;
-    display: inline-block;
     vertical-align: middle;
+    height: 100%;
 }
-
+body {
+    background-color: white;
+}
 .navlogos {
     position: relative;
     width: 1.5rem;
@@ -16,49 +17,94 @@
 }
 
 .infobox {
-    width: 82%;
-    align-items: center;
-    border: 1px solid #989797;
-    text-align: center;
-    padding: 2rem;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 40vh;
+}
+
+.iconpost {
+    border-radius: 2rem;
+    margin-right: 2vh;
+    width: 37px;
+}
+
+.icon {
+    border-radius: 3rem;
+    margin-right: 3vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.video {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.filters {
+    border-bottom: 1px solid #989797;
+}
+
+.filtersb {
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    margin-left: 2vh;
+    margin-right: 1vh;
+    border-radius: 3vh;
+    color: #ed6c02;
+    border-color: #ed6c02;
+}
+
+.filtersb:hover {
+    border-color: #ed6c02;
+    background-color: #ffdabc;
+}
+
+.filtersb:focus {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.descricao {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    height: 4vh;
+}
+
+.textodescricao {
+    margin: 0px;
+    margin-top: 2%;
+}
+
+.gridvideo {
+    margin: 5vh;
 }
 
 #search {
     border-radius: 1rem;
     border-color: #989797;
-    width: 50%;
-}
-
-.searchbar {
-    display: inline-block;
-    vertical-align: top;
+    width: 35%;
+    background-color: white;
+    color: black;
     
 }
 
-.shadows {
-    border: 0px;
-    border-bottom: 1px  solid #989797;
-}
-.buttons {
-    width: 2rem;
-    text-align: left;
-    position: absolute;
-    height: 1.5rem;
-    background-color: white;
-    margin-left: 2rem;
-    border-width: 0px;
-    font-weight: bold;
-}
-
-.white-box {
-    height: 8rem;
-}
-
-.white-box2 {
-    height: 25rem;
+.searchbar {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid #989797;
 }
 
 .neoimg {
     text-align: center;
     padding: 0.5rem;
+    margin-bottom: 10vh;
 }
