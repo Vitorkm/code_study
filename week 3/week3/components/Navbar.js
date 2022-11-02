@@ -15,7 +15,7 @@ function Navbar () {
     return (
     <div class="navbar">
         <div class="neoimg">
-        <img src="https://intranetneo.certi.org.br/neo.svg" width={'200px'}/>
+        <img src="https://intranetneo.certi.org.br/neo.svg" width={'90%'}/>
         </div>
 
         <div>
@@ -23,19 +23,19 @@ function Navbar () {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         >
-        <ListItemButton>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/mockup'}}>
             <ListItemIcon >
             <HomeOutlinedIcon  color="warning"/>
             </ListItemIcon>
             <ListItemText style={{color: '#ed6c02'}} primary="Home"/>
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/favorites'}}>
             <ListItemIcon>
             <StarOutlinedIcon  color="warning"/>
             </ListItemIcon>
             <ListItemText style={{color: '#ed6c02'}} primary="Favoritos" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/historic'}}>
             <ListItemIcon>
             <HistoryOutlinedIcon  color="warning"/>
             </ListItemIcon>

@@ -1,12 +1,14 @@
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
-
-function Video () {
+function Video (props) {
     return (
-        <div>
-            <img class="thumbnail" src="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png" />
+        <div className="videobox">
+            <img class="thumbnail" src={props.thumbnail} />
             <div class="descricao">
-                <img class="iconpost" src="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
-                <p class="textodescricao">Titulo do seminario</p>
+                <img class="iconpost" src={props.icon}/>
+                <p class="textodescricao">{props.titulo}</p>
+                <StarOutlineIcon className="favoritestar" color="warning"/>
+
             </div>
         </div>
     );
