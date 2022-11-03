@@ -12,6 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 
 function Navbar () {
 
+    
+
     return (
     <div class="navbar">
         <div class="neoimg">
@@ -23,19 +25,19 @@ function Navbar () {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         >
-        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/mockup'}}>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3000/mockup'}}>
             <ListItemIcon >
             <HomeOutlinedIcon  color="warning"/>
             </ListItemIcon>
             <ListItemText style={{color: '#ed6c02'}} primary="Home"/>
         </ListItemButton>
-        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/favorites'}}>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3000/favorites'}}>
             <ListItemIcon>
             <StarOutlinedIcon  color="warning"/>
             </ListItemIcon>
             <ListItemText style={{color: '#ed6c02'}} primary="Favoritos" />
         </ListItemButton>
-        <ListItemButton onClick={() => {location.href = 'http://localhost:3001/historic'}}>
+        <ListItemButton onClick={() => {location.href = 'http://localhost:3000/historic'}}>
             <ListItemIcon>
             <HistoryOutlinedIcon  color="warning"/>
             </ListItemIcon>

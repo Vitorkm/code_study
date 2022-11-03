@@ -4,8 +4,20 @@ import Searchbar from "../components/Searchbar";
 import { Grid } from "@mui/material";
 import Video from "../components/Video";
 import Button from '@mui/material/Button';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Page() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/videos/')
+        .then((resp) => {
+            setData(resp.data);
+        })
+    }, []);
+
 
     const filters = ['Data Science', 'Desenvolvimento Web', 'Power B.I.']
 
@@ -37,7 +49,12 @@ function Page() {
                 direction="row"
                 alignItems="flex-start"
                 >
-                <Grid item xs={4}>
+                {data.map((video) => {
+                    <Grid item xs={4}>
+                    <Video key={video.id} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail}/>
+                    </Grid>
+                })}
+                {/* <Grid item xs={4}>
                 <Video titulo="teste 12345" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
                 </Grid>
                 <Grid item xs={4}>
@@ -57,7 +74,7 @@ function Page() {
                 </Grid>
                 <Grid item xs={4}>
                 <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
+                </Grid> */}
             </Grid>
         </div>
         </Grid>
