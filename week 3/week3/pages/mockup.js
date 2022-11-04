@@ -49,11 +49,11 @@ function Page() {
                 direction="row"
                 alignItems="flex-start"
                 >
-                {data.map((video) => {
+                {data.map((video) => (
                     <Grid item xs={4}>
                     <Video key={video.id} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail}/>
                     </Grid>
-                })}
+                ))}
                 {/* <Grid item xs={4}>
                 <Video titulo="teste 12345" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
                 </Grid>

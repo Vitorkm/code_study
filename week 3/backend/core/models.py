@@ -13,6 +13,7 @@ class Video(models.Model):
     thumbnail = models.URLField('Thumbnail')
     title = models.CharField('Title', max_length=50)
     icon = models.URLField('Icon')
+    star = models.BooleanField('Star', default=False)
 
     def __str__(self):
         return self.title
