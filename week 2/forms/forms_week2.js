@@ -1,13 +1,37 @@
 function autofillhot() {
     let prefix = document.querySelector('#email').value;
-    prefix = prefix + '@hotmail.com';
-    document.querySelector('#email').value = prefix;
+
+    if (prefix.includes('@gmail.com')) {
+        prefix = prefix.replace('@gmail.com', '@hotmail.com');
+        document.querySelector('#email').value = prefix;
+    }
+
+    else if (prefix.includes('@hotmail.com')) {
+        document.querySelector('#email').value = prefix;
+    }
+
+    else {
+        prefix = prefix + '@hotmail.com';
+        document.querySelector('#email').value = prefix;
+    }  
 }
 
 function autofillg() {
     let prefix = document.querySelector('#email').value;
-    prefix = prefix + '@gmail.com';
-    document.querySelector('#email').value = prefix;
+
+    if (prefix.includes('@hotmail.com')) {
+        prefix = prefix.replace('@hotmail.com', '@gmail.com');
+        document.querySelector('#email').value = prefix;
+    }
+
+    else if (prefix.includes('@gmail.com')) {
+        document.querySelector('#email').value = prefix;
+    }
+
+    else {
+        prefix = prefix + '@gmail.com';
+        document.querySelector('#email').value = prefix;
+    }
 }
 
 function togglepassword() {
@@ -57,9 +81,12 @@ function check() {
     let first_pw = document.querySelector('#senha').value;
     let second_pw = document.querySelector('#confirmapw').value;
 
-    if (first_pw != second_pw) {
+    if ((first_pw == "") || (second_pw == "")) {
+        alert('Preencha todos os campos de senha!');
+    } else if (first_pw != second_pw) {
         alert('As senhas não coincidem!');
-    } else {
-        alert('Cadastro Concluído');
+    }
+    else {
+        alert('Cadastro Concluído!');
     }
 }

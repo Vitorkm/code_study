@@ -5,38 +5,24 @@ import { Grid, ListItem } from "@mui/material";
 import Video from "../components/Video";
 import Button from '@mui/material/Button';
 import StarIcon from '@mui/icons-material/Star';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Favorites () {
 
-    const api = [
-        {
-            name: "monark",
-            link: "google.com",
-            user: "VTK"
-        },
-        {
-            name: "venom",
-            link: "google.com",
-            user: "CDF"
-        }
-    ]
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/videos/')
+        .then((resp) => {
+            setData(resp.data);
+        })
+    }, []);
+
 
     const titulos = []
 
     return (
-        // <div>
-        //     api.map(( item) => (
-        //         <Video 
-        //             user={ListItem.user}
-
-        //             // <h1> 
-        //         />
-        //         )
-        //     )
-        //     <div style={{ width:"100px", height:'100px', background:'red' }}>
-        //         adwoijdapoiwdj
-        //     </div>
-        // </div>
         <div>
         <Head>
             <title>Favoritos</title>
@@ -60,30 +46,11 @@ function Favorites () {
                 direction="row"
                 alignItems="flex-start"
                 >
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                {/* <Video/>
-                <Video/>
-                <Video/> */}
+                {data.filter((video) => (video.star == true)).map((video) => (
+                    <Grid item xs={4}>
+                    <Video key={video.id} fav={video.star} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail} acess={video.id}/>
+                    </Grid>
+                ))}
             </Grid>
             </div>
         </Grid>

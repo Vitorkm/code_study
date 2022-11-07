@@ -63,9 +63,15 @@ button {
     font-family: Montserrat;
     font-size: medium;
 }
-button:hover {
+button:hover:enabled {
     background-color: #007BFF;
 }
+
+button:disabled{
+    background-color: #83adc9;
+}
+
+
 .inputs {
     width: 90%;
     margin-bottom: 15px;
@@ -90,6 +96,11 @@ span {
 #link {
     text-decoration: none;
 }
+
+#link:hover {
+    text-decoration: underline;
+}
+
 .imagem {
     width: 55%;
 }
@@ -103,6 +114,7 @@ hr {
     padding-top: 2px;
     margin-bottom: 15px;
     display: inline-block;
+    cursor: pointer;
 }
 #email {
     margin-bottom: 0px;
@@ -116,6 +128,7 @@ hr {
     margin-bottom: 15px;
     display: inline-block;
     color: #585858;
+    cursor: pointer;
 }
 #certo {
     width: 15px;
