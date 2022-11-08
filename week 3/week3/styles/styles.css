@@ -34,11 +34,51 @@ body {
     width: 37px;
 }
 
+.back {
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
+
+.total{
+    height: 100vh;
+}
+
+.perfil {
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.perfilhub {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.acronym {
+    margin: 0px;
+    margin-top: 1vh;
+    margin-bottom: 10vh;
+    text-align: center;
+    font-weight: bold;
+}
+
+.inputPerfil {
+    margin-bottom: 4vh;
+}
+
+.perfilicone {
+    margin-top: 12vh;
+    cursor: pointer;
+}
+
 .icon {
     border-radius: 3rem;
     margin-right: 3vh;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    cursor: pointer;
 }
 
 .video {

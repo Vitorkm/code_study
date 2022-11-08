@@ -11,6 +11,7 @@ import axios from "axios";
 function Favorites () {
 
     const [data, setData] = useState([]);
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/videos/')
@@ -18,6 +19,10 @@ function Favorites () {
             setData(resp.data);
         })
     }, []);
+
+    const resetFavorites = () => {
+
+    }
 
 
     const titulos = []
@@ -35,7 +40,7 @@ function Favorites () {
             <Navbar />
         </Grid>
         <Grid item xs={10}>
-            <Searchbar loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
+            <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
             <div class="favorito">
             <Button color="warning" variant="contained" className="favoriteicon" disableElevation startIcon={<StarIcon />}>Favoritos</Button>
             <Button color="warning" variant="outlined" className="resetfav">Resetar Favoritos</Button>
@@ -46,7 +51,7 @@ function Favorites () {
                 direction="row"
                 alignItems="flex-start"
                 >
-                {data.filter((video) => (video.star == true)).map((video) => (
+                {data.filter((video) => video.star == true && video.title.toLowerCase().includes(search.toLowerCase())).map((video) => (
                     <Grid item xs={4}>
                     <Video key={video.id} fav={video.star} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail} acess={video.id}/>
                     </Grid>

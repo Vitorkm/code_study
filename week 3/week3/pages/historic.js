@@ -5,8 +5,22 @@ import { Grid } from "@mui/material";
 import Video from "../components/Video";
 import Button from '@mui/material/Button';
 import StarIcon from '@mui/icons-material/Star';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Historic () {
+    
+    const [data, setData] = useState([]);
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/videos/')
+        .then((resp) => {
+            setData(resp.data);
+        })
+    }, []);
+    
+    
     return (
         <div>
         <Head>
@@ -20,7 +34,7 @@ function Historic () {
             <Navbar />
         </Grid>
         <Grid item xs={10}>
-            <Searchbar loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
+            <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
             <div class="favorito">
             <Button color="warning" variant="contained" className="favoriteicon" disableElevation startIcon={<StarIcon />}>Histórico</Button>
             <Button color="warning" variant="outlined" className="resetfav">Resetar Histórico</Button>
@@ -31,55 +45,18 @@ function Historic () {
                 direction="row"
                 alignItems="flex-start"
                 >
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
-                <Grid item xs={4}>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                </Grid>
+                {data.filter((video) =>  video.title.toLowerCase().includes(search.toLowerCase())).map((video) => (
+                    <Grid item xs={4}>
+                    <Video key={video.id} fav={video.star} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail} acess={video.id}/>
+                    </Grid>
+                ))}
             </Grid>
-            {/* <Grid className="video"
-                container item
-                direction="row"
-                justifyContent="space-evenly"
-                alignItems="flex-start"
-                >
-
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-                <Video titulo="teste" icon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh" thumbnail="https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png"/>
-            </Grid> */}
-            {/* <Grid className="video"
-                container item
-                direction="row"
-                justifyContent="space-evenly"
-                alignItems="flex-start"
-                > */}
-                {/* <Video/>
-                <Video/>
-                <Video/> */}
-            {/* </Grid> */}
             </div>
         </Grid>
         </Grid>
         </div>
     );
 }
-
+// video.star == true &&
 
 export default Historic;

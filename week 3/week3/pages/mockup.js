@@ -10,6 +10,8 @@ import axios from "axios";
 function Page() {
 
     const [data, setData] = useState([]);
+    const [search, setSearch] = useState("");
+
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/videos/')
@@ -36,7 +38,7 @@ function Page() {
             <Navbar />
         </Grid>
         <Grid item xs={10}>
-            <Searchbar loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
+            <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
             <div class="filters">
             <Button variant="outlined" className="filtersb">Tudo</Button>
             <Button variant="outlined" className="filtersb">Data Science</Button>
@@ -49,9 +51,16 @@ function Page() {
                 direction="row"
                 alignItems="flex-start"
                 >
-                {data.map((video) => (
+                {data.filter((e) => e.title.toLowerCase().includes(search.toLowerCase())).map((video) => (
                     <Grid item xs={4}>
-                    <Video key={video.id} fav={video.star} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail} acess={video.id}/>
+                    <Video 
+                        key={video.id} 
+                        fav={video.star} 
+                        titulo={video.title} 
+                        icon={video.icon} 
+                        thumbnail={video.thumbnail} 
+                        acess={video.id}
+                    />
                     </Grid>
                 ))}
             </Grid>
