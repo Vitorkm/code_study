@@ -35,7 +35,9 @@ function Favorites () {
         <Grid container 
             direction="row"
             justifyContent="flex-start"
-            alignItems="stretch">
+            alignItems="stretch"
+            className="total"
+            >
         <Grid item xs={2}>
             <Navbar />
         </Grid>

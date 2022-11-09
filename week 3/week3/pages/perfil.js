@@ -18,6 +18,19 @@ function Perfil () {
         })
     }, []);
 
+
+    // const changeIcon = () => {
+    //     axios.put(`http://localhost:8000/api/members/${props.acess}/`, 
+    //     { 
+    //         "name" : props.thumbnail,
+    //         "title" : props.titulo,
+    //         "icon" : props.icon,
+    //         "star" : !(props.fav)
+    //     });
+
+
+
+
     return (
         <div>
         <Head>
@@ -44,6 +57,7 @@ function Perfil () {
             alignItems="stretch"
             className="perfil"
             />
+            
         <Grid item>
             <div className="perfilhub">
                 <Tooltip title="Clique para alterar a foto de perfil" placement="top" arrow>
@@ -52,47 +66,58 @@ function Perfil () {
                     alt="Remy Sharp"
                     src="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"
                     sx={{ width: 250, height: 250 }}
+
                 /> 
                 </Tooltip>
-                <p className="acronym">VKM</p>
+                {data.map((e) => (
+                    <p className="acronym">{e.acronym}</p>
+                ))}
+                
             </div>
         </Grid>
-        <Grid item>
-        <TextField
-            sx={{ width: '21vh' }}
-            id="outlined-read-only-input"
-            label="E-mail"
-            defaultValue="vkm@certi.org.br"
-            className="inputPerfil"
-            InputProps={{
-                readOnly: true,
-            }}
-        />
-        </Grid>
-        <Grid item>
-        <TextField
-            sx={{ width: '18vh' }}
-            id="outlined-read-only-input"
-            label="Data de Nascimento"
-            defaultValue="10/09/2001"
-            className="inputPerfil"
-            InputProps={{
-                readOnly: true,
-            }}
-        />
-        </Grid>
-        <Grid item>
-        <TextField
-            sx={{ width: '40vh' }}
-            id="outlined-read-only-input"
-            label="Nome"
-            defaultValue="Vitor Kretiska Medeiros"
-            className="inputPerfil"
-            InputProps={{
-                readOnly: true,
-            }}
-        />
-        </Grid>
+        
+        {data.map((e) => (
+                <Grid item>
+                    <TextField
+                        sx={{ width: '21vh' }}
+                        id="outlined-read-only-input"
+                        label="E-mail"
+                        defaultValue={e.email}
+                        className="inputPerfil"
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                    />
+                </Grid>
+                ))}
+        {data.map((e) => (
+                <Grid item>
+                <TextField
+                    sx={{ width: '18vh' }}
+                    id="outlined-read-only-input"
+                    label="Data de Nascimento"
+                    defaultValue={e.birthdate}
+                    className="inputPerfil"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                />
+                </Grid>
+        ))}
+        {data.map((e) => (
+                <Grid item>
+                <TextField
+                    sx={{ width: '40vh' }}
+                    id="outlined-read-only-input"
+                    label="Nome"
+                    defaultValue={e.name}
+                    className="inputPerfil"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                />
+                </Grid>
+        ))}
         </Grid>
         </Grid>
         </div>
