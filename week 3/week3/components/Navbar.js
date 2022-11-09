@@ -8,7 +8,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import IconButton from '@mui/material/IconButton';
 
 function Navbar () {
 
@@ -20,7 +21,7 @@ function Navbar () {
         <img src="https://intranetneo.certi.org.br/neo.svg" width={'90%'}/>
         </div>
 
-        <div>
+        <div className="navButtons">
             <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
@@ -45,8 +46,11 @@ function Navbar () {
         </ListItemButton>
         </List>
     </div>
-
-
+    <div className="buttonAdd">
+    <IconButton aria-label="add" color="warning" className="addvideo" >
+        <AddCircleIcon sx={{ width: 65, height: 65 }}  onClick={() => {location.href = 'http://localhost:3000/upload'}}/>
+    </IconButton>
+    </div>
     </div>
 );}
 

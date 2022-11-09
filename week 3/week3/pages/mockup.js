@@ -21,7 +21,7 @@ function Page() {
     }, []);
 
 
-    const filters = ['Data Science', 'Desenvolvimento Web', 'Power B.I.']
+    const [filters, setFilters] = useState("");
 
 
 
@@ -42,10 +42,10 @@ function Page() {
         <Grid item xs={10}>
             <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
             <div class="filters">
-            <Button variant="outlined" className="filtersb">Tudo</Button>
-            <Button variant="outlined" className="filtersb">Data Science</Button>
-            <Button variant="outlined" className="filtersb">Power B.I.</Button>
-            <Button variant="outlined" className="filtersb">Desenvolvimento Web</Button>
+            <Button variant="outlined" onClick={() => setFilters("")} className="filtersb">Tudo</Button>
+            <Button variant="outlined" onClick={() => setFilters("Data Science")} className="filtersb">Data Science</Button>
+            <Button variant="outlined" onClick={() => setFilters("Power B.I.")} className="filtersb">Power B.I.</Button>
+            <Button variant="outlined" onClick={() => setFilters("Desenvolvimento Web")} className="filtersb">Desenvolvimento Web</Button>
             </div>
             <div className="gridvideo">
             <Grid className="video"
@@ -53,14 +53,16 @@ function Page() {
                 direction="row"
                 alignItems="flex-start"
                 >
-                {data.filter((e) => e.title.toLowerCase().includes(search.toLowerCase())).map((video) => (
-                    <Grid item xs={4}>
+                {data.filter((e) => e.title.toLowerCase().includes(search.toLowerCase()) && e.tags.includes(filters)).map((video) => (
+                    <Grid item xs={4} className="container">
                     <Video 
                         key={video.id} 
                         fav={video.star} 
                         titulo={video.title} 
                         icon={video.icon} 
                         thumbnail={video.thumbnail} 
+                        tags={video.tags}
+                        seen={video.seen}
                         acess={video.id}
                     />
                     </Grid>

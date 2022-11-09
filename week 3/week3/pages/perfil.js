@@ -20,13 +20,14 @@ function Perfil () {
 
 
     // const changeIcon = () => {
-    //     axios.put(`http://localhost:8000/api/members/${props.acess}/`, 
+    //     {data.map((e) => (
+        //axios.put(`http://localhost:8000/api/members/${e.id}/`, 
     //     { 
-    //         "name" : props.thumbnail,
-    //         "title" : props.titulo,
-    //         "icon" : props.icon,
-    //         "star" : !(props.fav)
-    //     });
+    //         "name" : {e.name},
+    //         "acronym" : e.acronym,
+    //         "birthdate" : e.birthdate,
+    //         "star" : !(e.fav)
+    //     });))}
 
 
 
@@ -34,7 +35,7 @@ function Perfil () {
     return (
         <div>
         <Head>
-            <title>Histórico</title>
+            <title>Perfil</title>
         </Head>
         <Grid container 
             direction="row"
@@ -60,15 +61,17 @@ function Perfil () {
             
         <Grid item>
             <div className="perfilhub">
+            {data.map((e) => (
                 <Tooltip title="Clique para alterar a foto de perfil" placement="top" arrow>
                 <Avatar
                     className="perfilicone"
-                    alt="Remy Sharp"
-                    src="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"
+                    alt="Perfil"
+                    src={e.profile}
                     sx={{ width: 250, height: 250 }}
 
                 /> 
                 </Tooltip>
+                ))}
                 {data.map((e) => (
                     <p className="acronym">{e.acronym}</p>
                 ))}

@@ -48,8 +48,16 @@ function Historic () {
                 alignItems="flex-start"
                 >
                 {data.filter((video) =>  video.title.toLowerCase().includes(search.toLowerCase())).map((video) => (
-                    <Grid item xs={4}>
-                    <Video key={video.id} fav={video.star} titulo={video.title} icon={video.icon} thumbnail={video.thumbnail} acess={video.id}/>
+                    <Grid item xs={4} className="container">
+                    <Video 
+                    key={video.id} 
+                    fav={video.star} 
+                    titulo={video.title} 
+                    icon={video.icon} 
+                    thumbnail={video.thumbnail} 
+                    tags={video.tags}
+                    seen={video.seen}
+                    acess={video.id}/>
                     </Grid>
                 ))}
             </Grid>

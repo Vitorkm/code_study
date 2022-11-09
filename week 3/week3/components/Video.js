@@ -14,7 +14,9 @@ function Video (props) {
             "thumbnail" : props.thumbnail,
             "title" : props.titulo,
             "icon" : props.icon,
-            "star" : !(props.fav)
+            "star" : !(props.fav),
+            "tags": props.tags,
+            "seen": props.seen
         });
         setFavorite(!(props.fav));
     }
