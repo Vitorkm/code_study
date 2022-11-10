@@ -24,7 +24,6 @@ function Page() {
     const [filters, setFilters] = useState("");
 
 
-
     return (
         <div>
         <Head>
@@ -41,7 +40,7 @@ function Page() {
         </Grid>
         <Grid item xs={10}>
             <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
-            <div class="filters">
+            <div className="filters">
             <Button variant="outlined" onClick={() => setFilters("")} className="filtersb">Tudo</Button>
             <Button variant="outlined" onClick={() => setFilters("Data Science")} className="filtersb">Data Science</Button>
             <Button variant="outlined" onClick={() => setFilters("Power B.I.")} className="filtersb">Power B.I.</Button>
@@ -64,6 +63,7 @@ function Page() {
                         tags={video.tags}
                         seen={video.seen}
                         acess={video.id}
+                        setData={setData}
                     />
                     </Grid>
                 ))}

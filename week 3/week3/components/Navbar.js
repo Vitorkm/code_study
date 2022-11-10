@@ -16,8 +16,8 @@ function Navbar () {
     
 
     return (
-    <div class="navbar">
-        <div class="neoimg">
+    <div className="navbar">
+        <div className="neoimg">
         <img src="https://intranetneo.certi.org.br/neo.svg" width={'90%'}/>
         </div>
 

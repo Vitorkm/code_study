@@ -6,7 +6,6 @@ import axios from "axios";
 
 function Video (props) {
 
-    const [favorite, setFavorite] = useState(props.fav);
 
     const favFunction = () => {
         axios.put(`http://localhost:8000/api/videos/${props.acess}/`, 
@@ -17,19 +16,28 @@ function Video (props) {
             "star" : !(props.fav),
             "tags": props.tags,
             "seen": props.seen
-        });
-        setFavorite(!(props.fav));
+        }).then(
+            () => {
+                axios.get('http://localhost:8000/api/videos/')
+                .then((resp) => {
+                    props.setData(resp.data);
+                });
+            }
+        );
+
+        
     }
 
+    
     return (
         <div className="videobox">
-            <img class="thumbnail" src={props.thumbnail} />
-            <div class="descricao">
+            <img className="thumbnail" src={props.thumbnail} />
+            <div className="descricao">
                 <div className="icontitle">
-                <img class="iconpost" src={props.icon}/>
-                <p class="textodescricao">{props.titulo}</p>
+                <img className="iconpost" src={props.icon}/>
+                <p className="textodescricao">{props.titulo}</p>
                 </div>
-                <Checkbox checked={favorite} onClick={favFunction}  className="favoritecheck" icon={<StarOutlineIcon color="warning"/>} checkedIcon={<StarIcon color="warning"/>}/>
+                <Checkbox checked={props.fav} onClick={favFunction}  className="favoritecheck" icon={<StarOutlineIcon color="warning"/>} checkedIcon={<StarIcon color="warning"/>}/>
             </div>
         </div>
     );

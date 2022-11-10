@@ -37,7 +37,7 @@ function Historic () {
         </Grid>
         <Grid item xs={10}>
             <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
-            <div class="favorito">
+            <div className="favorito">
             <Button color="warning" variant="contained" className="favoriteicon" disableElevation startIcon={<StarIcon />}>Histórico</Button>
             <Button color="warning" variant="outlined" className="resetfav">Resetar Histórico</Button>
             </div>
@@ -57,7 +57,8 @@ function Historic () {
                     thumbnail={video.thumbnail} 
                     tags={video.tags}
                     seen={video.seen}
-                    acess={video.id}/>
+                    acess={video.id}
+                    />
                     </Grid>
                 ))}
             </Grid>

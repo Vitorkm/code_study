@@ -9,12 +9,12 @@ function Searchbar (props) {
     
     return (
         <div>
-            <div class="searchbar">
-                <div class="infobox">
+            <div className="searchbar">
+                <div className="infobox">
                         {/* <input type="search" onChange={props.setData(props.data.filter((video) => (video.title.includes(search))))} id="search" placeholder="Search" /> */}
                         <input type="search" onChange={(e) => props.setSearch(e.target.value)} id="search" placeholder="Search" />
                 </div>
-                <img class="icon" src={props.loginicon} onClick={() => {location.href = 'http://localhost:3000/perfil'}} width={'50px'}/>
+                <img className="icon" src={props.loginicon} onClick={() => {location.href = 'http://localhost:3000/perfil'}} width={'50px'}/>
             </div>
             
         </div>
