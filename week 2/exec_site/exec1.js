@@ -1,19 +1,16 @@
 function impar() {
     let numInput = document.querySelector('#number').value;
     if (numInput == 1) {
-        alert('É ímpar!');
+        alert('É primo!');
         return;
     }
-    for (let i = 2; i <= numInput; i++) {
-        if (numInput % i == 1) {
-            alert('É ímpar!');
-            break;
-        } else if (numInput % i == 0){
-            alert('É par!');
-            break;
-        }
-
+    for (let i = 2; i < (numInput/2); i++) {
+        if (numInput % i == 0) {
+            alert('Não é primo!');
+            return;
+        } 
     }
+    alert('É primo!');
 }
 
 function fatorial() {
