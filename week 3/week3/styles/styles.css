@@ -53,6 +53,20 @@ body {
     cursor: pointer;
 }
 
+.divtitle {
+    width: 80vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.videotitle {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 0px;
+    margin-top: 1.5vh;
+}
+
+
 .navButtons {
     margin-bottom: 45vh;
 }
@@ -67,7 +81,19 @@ body {
 
 .thumbnail {
     width: 40vh;
+    border-radius: 2vh;
     cursor: pointer;
+}
+
+.descricaoVideo {
+    display: flex;
+    margin-top: 5vh;
+}
+
+.descricaotitle {
+    font-weight: bold;
+    color: rgb(68, 68, 68);
+    margin-right: 1vh;
 }
 
 .container {
@@ -78,6 +104,13 @@ body {
     border-radius: 2rem;
     width: 5vh;
     height: 5vh;
+}
+
+.iconvideo {
+    border-radius: 3rem;
+    width: 8vh;
+    height: 8vh;
+    margin-right: 1vh;
 }
 
 .back {
@@ -108,9 +141,10 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 8vh;
-    width: 60vh;
+    width: 80vh;
     border-radius: 2vh;
     margin-bottom: 1vh;
+    cursor: pointer;
 }
 
 .acronym {

@@ -22,10 +22,23 @@ function Favorites () {
 
     const resetFavorites = () => {
 
+        Promise.all(data.filter((video) => video.star == true).map((video) => (
+             axios.put(`http://localhost:8000/api/videos/${video.id}/`, { 
+                "thumbnail" : video.thumbnail,
+                "title" : video.title,
+                "icon" : video.icon,
+                "star" : false,
+                "tags": video.tags,
+                "seen": video.seen
+             })
+            ))).then(
+                axios.get('http://localhost:8000/api/videos/')
+                .then((resp) => {
+                setData(resp.data);
+                }));
     }
 
 
-    const titulos = []
 
     return (
         <div>
@@ -45,7 +58,7 @@ function Favorites () {
             <Searchbar search={search} setSearch={setSearch} loginicon="https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh"/>
             <div class="favorito">
             <Button color="warning" variant="contained" className="favoriteicon" disableElevation startIcon={<StarIcon />}>Favoritos</Button>
-            <Button color="warning" variant="outlined" className="resetfav">Resetar Favoritos</Button>
+            <Button color="warning" onClick={resetFavorites} variant="outlined" className="resetfav">Resetar Favoritos</Button>
             </div>
             <div className="gridvideo">
             <Grid className="video"
