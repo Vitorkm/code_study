@@ -85,7 +85,7 @@ function Videopage () {
         </Grid>
             <Grid item className="descricaoVideo">
                 <p className="descricaotitle">Descrição:</p>
-                <p>Testando a descrição desse vídeo teste.</p>
+                <p>Testando a descrição desse vídeo teste 2.</p>
                 </Grid>
                 <Grid item>
                 
