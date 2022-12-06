@@ -23,7 +23,7 @@ function Video (props) {
 
     return (
         <div className="videobox">
-            <img class="thumbnail" src={props.thumbnail} />
+            <img class="thumbnail" src={props.thumbnail} onClick={() => {location.href = 'http://localhost:3000/videopage'}}/>
             <div class="descricao">
                 <div className="icontitle">
                 <img class="iconpost" src={props.icon}/>

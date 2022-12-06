@@ -10,9 +10,11 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import Modal from "../components/Modal";
 
 function Upload () {
     
+    const [modal, setModal] = useState("https://m.media-amazon.com/images/I/61B-tu9Gj2S._UY200__PKap-play-v1_.png");
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -23,15 +25,29 @@ function Upload () {
     }, []);
 
 
-    // const changeIcon = () => {
-    //     {data.map((e) => (
-        //axios.put(`http://localhost:8000/api/members/${e.id}/`, 
-    //     { 
-    //         "name" : {e.name},
-    //         "acronym" : e.acronym,
-    //         "birthdate" : e.birthdate,
-    //         "star" : !(e.fav)
-    //     });))}
+    const [tags, setTags] = useState("");
+    const [date, setDate] = useState("");
+    const [title, setTitle] = useState("");
+
+    const handleUpload = () => {
+        if (tags == "Nenhuma") {
+            setTags("")
+            };
+    };
+
+    const uploadVideo = () => {
+        axios.post(`http://localhost:8000/api/videos/`, 
+        { 
+            "thumbnail" : modal,
+            "title" : title,
+            "icon" : "https://drive.google.com/uc?export=view&id=1hiqLqtnkHHe3gSZ3hoz3fv8I7zjVcNoh",
+            "star" : false,
+            "tags" : tags,
+            "seen" : false,
+            "date" : date
+        });
+    };
+    
 
 
 
@@ -75,8 +91,10 @@ function Upload () {
                 ))}
             </div>
             <div className="perfilhub">
-                <img class="videoUpload" src='https://i.ytimg.com/vi/w3GV9pumczQ/maxresdefault.jpg' /> 
-                <Button variant="contained" color="warning" className="uploadButton">Upload Video</Button>
+                <img class="videoUpload" src={modal} /> 
+                <div className="divUpload">
+                    <Modal setModal={setModal} modal={modal}/>
+                </div>
             </div>
         </Grid>
             <Grid item>
@@ -85,6 +103,7 @@ function Upload () {
                     id="outlined-required"
                     label="Título"
                     className="inputPerfil"
+                    onChange={(e) => setTitle(e.target.value)}
                     />
                 </Grid>
                 <Grid item>
@@ -93,6 +112,7 @@ function Upload () {
                     id="outlined-required"
                     label="Data"
                     className="inputPerfil"
+                    onChange={(e) => setDate(e.target.value)}
                 />
                 </Grid>
                 <Grid item>
@@ -102,6 +122,7 @@ function Upload () {
                     row
                     aria-labelledby="tagsRadio"
                     name="radioGroup"
+                    onChange={(e) => setTags(e.target.value)}
                 >
                     <FormControlLabel value="Data Science" control={<Radio color="warning"/>} label="Data Science" />
                     <FormControlLabel value="Power B.I." control={<Radio color="warning"/>} label="Power B.I." />
@@ -111,7 +132,7 @@ function Upload () {
                 </FormControl>
                 </Grid>
                 <div className="finishUpload">
-                <Button variant="outlined" color="warning" className="finishUploadButton">Enviar Video</Button>
+                <Button variant="outlined" color="warning" onClick={uploadVideo} className="finishUploadButton">Enviar Video</Button>
                 </div>
         </Grid>
         </Grid>

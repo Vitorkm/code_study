@@ -17,6 +17,7 @@ class Video(models.Model):
     star = models.BooleanField('Star', default=False)
     tags = models.CharField('Tags', max_length=30)
     seen = models.BooleanField('Seen', default=False)
+    date = models.CharField('Date', max_length=30)
 
     def __str__(self):
         return self.title

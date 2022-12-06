@@ -16,17 +16,30 @@ body {
     
 }
 
+.addvideo {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 5vh;
+}
+
 .buttonAdd {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin-right: 1vh;
+    align-items: flex-end;
+    height: 45%;
 }
 
 .uploadButton {
     border-radius: 2vh;
-    margin-left: 40vh;
     margin-bottom: 3vh;
+
+}
+
+.uploadURL {
+    border-radius: 2vh;
+    margin-left: 75%;
+    margin-top: 3vh;
 }
 
 .finishUpload {
@@ -39,6 +52,7 @@ body {
     border-radius: 2vh;
     margin-right: 5vh;
     margin-top: 1vh;
+    margin-bottom: 2vh;
 }
 
 .profilediv {
@@ -59,6 +73,13 @@ body {
     justify-content: space-between;
 }
 
+.divUpload {
+    width: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
 .videotitle {
     font-weight: bold;
     font-size: x-large;
@@ -66,10 +87,12 @@ body {
     margin-top: 1.5vh;
 }
 
-
-.navButtons {
-    margin-bottom: 45vh;
+.inputURL {
+    width: 100%;
 }
+
+
+
 
 .infobox {
     display: flex;
@@ -140,11 +163,10 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 8vh;
     width: 80vh;
     border-radius: 2vh;
     margin-bottom: 1vh;
-    cursor: pointer;
+
 }
 
 .acronym {
@@ -285,4 +307,5 @@ body {
     text-align: center;
     padding: 0.5rem;
     margin-bottom: 10vh;
+    cursor: pointer;
 }

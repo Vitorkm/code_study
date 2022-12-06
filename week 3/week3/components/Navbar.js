@@ -18,7 +18,7 @@ function Navbar () {
     return (
     <div class="navbar">
         <div class="neoimg">
-        <img src="https://intranetneo.certi.org.br/neo.svg" width={'90%'}/>
+        <img src="https://intranetneo.certi.org.br/neo.svg" onClick={() => {location.href = 'http://localhost:3000/mockup'}} width={'90%'}/>
         </div>
 
         <div className="navButtons">
